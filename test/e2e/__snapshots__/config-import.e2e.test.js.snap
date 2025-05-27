@@ -144,7 +144,7 @@ Errors occurred during full config import
 "
 `;
 
-exports[`frodo config import "frodo config import -AD test/e2e/exports/idm/A": should export all IDM config to a single file. 1`] = `
+exports[`frodo config import "frodo config import -AD test/e2e/exports/idm": should export all IDM config to a single file. 1`] = `
 "Usage: frodo config import [options] [host] [realm] [username] [password]
 
 Import full cloud configuration.

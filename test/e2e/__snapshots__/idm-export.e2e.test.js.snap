@@ -39091,14 +39091,6 @@ exports[`frodo idm export "frodo idm export -AD testDir6 -m idm": should export 
             "effectiveAssignmentsProperty": "effectiveAssignments",
             "lastSyncProperty": "lastSync",
           },
-          "meta": {
-            "property": "_meta",
-            "resourceCollection": "internal/usermeta",
-            "trackedProperties": [
-              "createDate",
-              "lastChanged",
-            ],
-          },
           "name": "user",
           "notifications": {
             "property": "_notifications",
@@ -40140,9 +40132,13 @@ exports[`frodo idm export "frodo idm export -AD testDir6 -m idm": should export 
         },
         {
           "name": "role",
+          "onCreate": {
+            "globals": {},
+            "source": "//asdfasdfadsfasdf",
+            "type": "text/javascript",
+          },
           "schema": {
             "$schema": "http://forgerock.org/json-schema#",
-            "description": "",
             "icon": "fa-check-square",
             "id": "urn:jsonschema:org:forgerock:openidm:managed:api:Role",
             "mat-icon": "assignment_ind",
@@ -43282,6 +43278,38 @@ exports[`frodo idm export "frodo idm export -AD testDir6 -m idm": should export 
 }
 `;
 
+exports[`frodo idm export "frodo idm export -AD testDir6 -m idm": should export all idm config entities for on prem idm: testDir6/schedule/seantest.idm.json 1`] = `
+{
+  "idm": {
+    "schedule/seantest": {
+      "_id": "schedule/seantest",
+      "concurrentExecution": false,
+      "enabled": false,
+      "endTime": null,
+      "invokeContext": {
+        "script": {
+          "globals": {},
+          "source": "//sean has changed this script. Let's see if it is still working. qqqqqqqqqqqqqqSchedule1
+",
+          "type": "text/javascript",
+        },
+      },
+      "invokeLogLevel": "info",
+      "invokeService": "script",
+      "misfirePolicy": "fireAndProceed",
+      "persisted": true,
+      "recoverable": false,
+      "repeatCount": 0,
+      "repeatInterval": 0,
+      "schedule": null,
+      "startTime": null,
+      "type": "simple",
+    },
+  },
+  "meta": Any<Object>,
+}
+`;
+
 exports[`frodo idm export "frodo idm export -AD testDir6 -m idm": should export all idm config entities for on prem idm: testDir6/schedule/taskscan_activate.idm.json 1`] = `
 {
   "idm": {
@@ -43723,72 +43751,6 @@ exports[`frodo idm export "frodo idm export -AD testDir6 -m idm": should export 
       "_id": "sync",
       "mappings": [
         {
-          "_id": "sync/seantestmapping",
-          "consentRequired": false,
-          "displayName": "seantestmapping",
-          "icon": null,
-          "name": "seantestmapping",
-          "policies": [
-            {
-              "action": "ASYNC",
-              "situation": "ABSENT",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "ALL_GONE",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "AMBIGUOUS",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "CONFIRMED",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "FOUND",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "FOUND_ALREADY_LINKED",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "LINK_ONLY",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "MISSING",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "SOURCE_IGNORED",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "SOURCE_MISSING",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "TARGET_IGNORED",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "UNASSIGNED",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "UNQUALIFIED",
-            },
-          ],
-          "properties": [],
-          "source": "managed/assignment",
-          "syncAfter": [],
-          "target": "managed/organization",
-        },
-        {
-          "_id": "sync/managedOrganization_managedRole",
           "consentRequired": false,
           "displayName": "managedOrganization_managedRole",
           "icon": null,
@@ -43849,17 +43811,13 @@ exports[`frodo idm export "frodo idm export -AD testDir6 -m idm": should export 
           ],
           "properties": [],
           "source": "managed/organization",
-          "syncAfter": [
-            "seantestmapping",
-          ],
           "target": "managed/role",
         },
         {
-          "_id": "sync/managedSeantestmanagedobject_managedUser",
           "consentRequired": false,
-          "displayName": "managedSeantestmanagedobject_managedUser",
+          "displayName": "managedOrganization_managedSeantestmanagedobject",
           "icon": null,
-          "name": "managedSeantestmanagedobject_managedUser",
+          "name": "managedOrganization_managedSeantestmanagedobject",
           "policies": [
             {
               "action": "ASYNC",
@@ -43915,11 +43873,92 @@ exports[`frodo idm export "frodo idm export -AD testDir6 -m idm": should export 
             },
           ],
           "properties": [],
-          "source": "managed/seantestmanagedobject",
-          "syncAfter": [
-            "seantestmapping",
-            "managedOrganization_managedRole",
+          "source": "managed/organization",
+          "target": "managed/seantestmanagedobject",
+        },
+        {
+          "consentRequired": false,
+          "displayName": "managedAssignment_managedUser",
+          "icon": null,
+          "name": "managedAssignment_managedUser",
+          "policies": [
+            {
+              "action": {
+                "globals": {},
+                "source": "//asdfasdf",
+                "type": "groovy",
+              },
+              "situation": "AMBIGUOUS",
+            },
+            {
+              "action": {
+                "globals": {},
+                "source": "//asdfasdfasdf",
+                "type": "text/javascript",
+              },
+              "condition": {
+                "globals": {},
+                "source": "//asdfasdfasdf",
+                "type": "groovy",
+              },
+              "postAction": {
+                "globals": {},
+                "source": "//asdfasdf",
+                "type": "text/javascript",
+              },
+              "situation": "SOURCE_MISSING",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "MISSING",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "FOUND_ALREADY_LINKED",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "UNQUALIFIED",
+            },
+            {
+              "action": {
+                "globals": {},
+                "source": "//asdfasdfasdf",
+                "type": "text/javascript",
+              },
+              "situation": "UNASSIGNED",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "LINK_ONLY",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "TARGET_IGNORED",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "SOURCE_IGNORED",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "ALL_GONE",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "CONFIRMED",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "FOUND",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "ABSENT",
+            },
           ],
+          "properties": [],
+          "source": "managed/assignment",
           "target": "managed/user",
         },
       ],
@@ -61745,14 +61784,6 @@ exports[`frodo idm export "frodo idm export -aD testDir7 -m idm": should export 
             "effectiveAssignmentsProperty": "effectiveAssignments",
             "lastSyncProperty": "lastSync",
           },
-          "meta": {
-            "property": "_meta",
-            "resourceCollection": "internal/usermeta",
-            "trackedProperties": [
-              "createDate",
-              "lastChanged",
-            ],
-          },
           "name": "user",
           "notifications": {
             "property": "_notifications",
@@ -62794,9 +62825,13 @@ exports[`frodo idm export "frodo idm export -aD testDir7 -m idm": should export 
         },
         {
           "name": "role",
+          "onCreate": {
+            "globals": {},
+            "source": "//asdfasdfadsfasdf",
+            "type": "text/javascript",
+          },
           "schema": {
             "$schema": "http://forgerock.org/json-schema#",
-            "description": "",
             "icon": "fa-check-square",
             "id": "urn:jsonschema:org:forgerock:openidm:managed:api:Role",
             "mat-icon": "assignment_ind",
@@ -65843,6 +65878,30 @@ exports[`frodo idm export "frodo idm export -aD testDir7 -m idm": should export 
         },
       ],
     },
+    "schedule/seantest": {
+      "_id": "schedule/seantest",
+      "concurrentExecution": false,
+      "enabled": false,
+      "endTime": null,
+      "invokeContext": {
+        "script": {
+          "globals": {},
+          "source": "//sean has changed this script. Let's see if it is still working. qqqqqqqqqqqqqqSchedule1
+",
+          "type": "text/javascript",
+        },
+      },
+      "invokeLogLevel": "info",
+      "invokeService": "script",
+      "misfirePolicy": "fireAndProceed",
+      "persisted": true,
+      "recoverable": false,
+      "repeatCount": 0,
+      "repeatInterval": 0,
+      "schedule": null,
+      "startTime": null,
+      "type": "simple",
+    },
     "schedule/taskscan_activate": {
       "_id": "schedule/taskscan_activate",
       "concurrentExecution": false,
@@ -66193,72 +66252,6 @@ openidm.patch(objectID, null, patch); true;",
       "_id": "sync",
       "mappings": [
         {
-          "_id": "sync/seantestmapping",
-          "consentRequired": false,
-          "displayName": "seantestmapping",
-          "icon": null,
-          "name": "seantestmapping",
-          "policies": [
-            {
-              "action": "ASYNC",
-              "situation": "ABSENT",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "ALL_GONE",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "AMBIGUOUS",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "CONFIRMED",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "FOUND",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "FOUND_ALREADY_LINKED",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "LINK_ONLY",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "MISSING",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "SOURCE_IGNORED",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "SOURCE_MISSING",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "TARGET_IGNORED",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "UNASSIGNED",
-            },
-            {
-              "action": "ASYNC",
-              "situation": "UNQUALIFIED",
-            },
-          ],
-          "properties": [],
-          "source": "managed/assignment",
-          "syncAfter": [],
-          "target": "managed/organization",
-        },
-        {
-          "_id": "sync/managedOrganization_managedRole",
           "consentRequired": false,
           "displayName": "managedOrganization_managedRole",
           "icon": null,
@@ -66319,17 +66312,13 @@ openidm.patch(objectID, null, patch); true;",
           ],
           "properties": [],
           "source": "managed/organization",
-          "syncAfter": [
-            "seantestmapping",
-          ],
           "target": "managed/role",
         },
         {
-          "_id": "sync/managedSeantestmanagedobject_managedUser",
           "consentRequired": false,
-          "displayName": "managedSeantestmanagedobject_managedUser",
+          "displayName": "managedOrganization_managedSeantestmanagedobject",
           "icon": null,
-          "name": "managedSeantestmanagedobject_managedUser",
+          "name": "managedOrganization_managedSeantestmanagedobject",
           "policies": [
             {
               "action": "ASYNC",
@@ -66385,11 +66374,92 @@ openidm.patch(objectID, null, patch); true;",
             },
           ],
           "properties": [],
-          "source": "managed/seantestmanagedobject",
-          "syncAfter": [
-            "seantestmapping",
-            "managedOrganization_managedRole",
+          "source": "managed/organization",
+          "target": "managed/seantestmanagedobject",
+        },
+        {
+          "consentRequired": false,
+          "displayName": "managedAssignment_managedUser",
+          "icon": null,
+          "name": "managedAssignment_managedUser",
+          "policies": [
+            {
+              "action": {
+                "globals": {},
+                "source": "//asdfasdf",
+                "type": "groovy",
+              },
+              "situation": "AMBIGUOUS",
+            },
+            {
+              "action": {
+                "globals": {},
+                "source": "//asdfasdfasdf",
+                "type": "text/javascript",
+              },
+              "condition": {
+                "globals": {},
+                "source": "//asdfasdfasdf",
+                "type": "groovy",
+              },
+              "postAction": {
+                "globals": {},
+                "source": "//asdfasdf",
+                "type": "text/javascript",
+              },
+              "situation": "SOURCE_MISSING",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "MISSING",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "FOUND_ALREADY_LINKED",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "UNQUALIFIED",
+            },
+            {
+              "action": {
+                "globals": {},
+                "source": "//asdfasdfasdf",
+                "type": "text/javascript",
+              },
+              "situation": "UNASSIGNED",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "LINK_ONLY",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "TARGET_IGNORED",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "SOURCE_IGNORED",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "ALL_GONE",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "CONFIRMED",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "FOUND",
+            },
+            {
+              "action": "ASYNC",
+              "situation": "ABSENT",
+            },
           ],
+          "properties": [],
+          "source": "managed/assignment",
           "target": "managed/user",
         },
       ],
